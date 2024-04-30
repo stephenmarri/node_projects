@@ -20,9 +20,26 @@ async function main_script(){
         meta = document.querySelector('#card_' + (index + 1) + ' p')
         header.innerText = 'Computer: ' + machine
 
-        // // card data
-        // time = values[2]["time"]
-        // meta.innerHTML = `Status: <b>Active</b>, Pending: ${pending}<b></b>`
+        // card data
+        if(values[2]){
+
+            pending = values[2]["processing"]
+            var matches = pending.match(/\[(.*?)\]/);
+            color = "red";
+
+            if (matches) {
+                 pending = matches[1];
+                 start = pending.split("/")[0]
+                 end = pending.split("/")[1]
+                 pending = parseInt(end) - parseInt(start)
+                 if (pending < 1000) color = 'blue'
+                 if (pending < 500) color = 'green'
+            }
+
+
+            // meta.innerHTML = `Status: <b>Active</b>, Remaining: ${pending}<b></b>`
+            meta.innerHTML = `<em>Remaining: </em><b style="color: ${color};">${pending}<b></b>`
+        }
 
     }
         // other data
