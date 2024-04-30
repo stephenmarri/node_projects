@@ -9,6 +9,16 @@ body{
     flex-wrap: wrap;
 }
 
+#meta_data{
+    height: 40px;
+    width: 80%;
+    background-color: wheat;
+    border: 1px solid darkgray;
+    margin-bottom: 2rem;
+    text-align: center;
+    line-height: 40px;
+}
+
 .full_card{
     /* width: 100%; */
     min-height: 200px;

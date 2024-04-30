@@ -8,18 +8,26 @@ window.addEventListener("load", ()=>{
 
 async function main_script(){
 
-    machines = ["marcie","library", "aruna_mam", "angelle", "additional_1", "additional_2"]
+    machines = ["marcie","library", "aruna_mam", "angelle", "additional_1", "additional_2", "additional_3"]
 
     for (let index = 0; index < machines.length; index++) {
         const machine = machines[index];
 
         const values = await get_api(machine)
         elem = document.querySelector('#card_' + (index + 1) + ' span')
-        elem.innerHTML = JSON.stringify(values[1], undefined, 2)
+        elem.innerHTML = JSON.stringify(values[2], undefined, 2)
         header = document.querySelector('#card_' + (index + 1) + ' h6')
+        meta = document.querySelector('#card_' + (index + 1) + ' p')
         header.innerText = 'Computer: ' + machine
-        
+
+        // // card data
+        // time = values[2]["time"]
+        // meta.innerHTML = `Status: <b>Active</b>, Pending: ${pending}<b></b>`
+
     }
+        // other data
+        // other = document.querySelector('#meta_data')
+        // other.innerHTML = `Last Refreshed on: ${new Date().toLocaleTimeString() } Active: `
 }
 
 async function get_api(machine){
