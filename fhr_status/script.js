@@ -8,7 +8,7 @@ window.addEventListener("load", ()=>{
 
 async function main_script(){
 
-    machines = ["marcie","library", "aruna_mam", "angelle", "additional_1", "additional_2", "additional_3"]
+    machines = ["marcie","library", "aruna_mam", "angelle", "additional_1", "additional_2", "additional_3", "additional_4", "additional_5"]
 
     for (let index = 0; index < machines.length; index++) {
         const machine = machines[index];
