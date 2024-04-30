@@ -1,0 +1,46 @@
+body{
+    padding: 1rem;
+    font-size: 14px;
+    min-height: 97vh;
+}
+
+#main_container{
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.full_card{
+    /* width: 100%; */
+    min-height: 200px;
+    min-width: 400px;
+    border: 1px solid gray;
+    background-color: whitesmoke;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+    flex-basis: 30%;
+    flex-grow: 1;
+
+    & pre{
+        white-space: pre-wrap;
+    }
+
+    & h6{
+        text-transform: capitalize;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    body{
+        padding: 1rem 0.25rem;
+    }
+    #main_container{
+        flex-wrap: wrap;
+ 
+    }
+    .full_card{
+        flex-basis: 100%;
+        min-width: 90vw;
+        margin-right: 1rem;
+    }
+  }

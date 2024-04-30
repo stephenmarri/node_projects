@@ -1,9 +1,38 @@
 {
-    "posts": [
-      { "id": 1, "title": "json-server", "author": "typicode" }
-    ],
-    "comments": [
-      { "id": 1, "body": "some comment", "postId": 1 }
-    ],
-    "profile": { "name": "typicodee" }
-  }
+  "library": [
+    {
+      "id": 1,
+      "time": "",
+      "last_processed_record": "",
+      "status":"",
+      "processing":""
+    }
+  ],
+  "marcie": [
+    {
+      "id": 1,
+      "time": "",
+      "last_processed_record": "",
+      "status":"",
+      "processing":""
+    }
+  ],
+  "angelle": [
+    {
+      "id": 1,
+      "time": "",
+      "last_processed_record": "",
+      "status":"",
+      "processing":""
+    }
+  ],
+  "aruna_mam": [
+    {
+      "id": 1,
+      "time": "",
+      "last_processed_record": "",
+      "status":"",
+      "processing":""
+    }
+  ]
+}
