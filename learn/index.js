@@ -44,7 +44,7 @@ app.post('/api/products',async (req, res)=>{
 mongoose.connect("mongodb+srv://greenandthere:2htVtlgr7vbDuDbd@backenddb.jpekjaq.mongodb.net/Node-API?retryWrites=true&w=majority&appName=BackendDB")
 .then(()=>{
     console.log('Connected to DB')
-    app.listen(3000, ()=>{
+    app.listen(8080, ()=>{
         console.log("Server listening on port 3000")
     })
 })
