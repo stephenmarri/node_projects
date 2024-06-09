@@ -1,8 +1,10 @@
+require('dotenv').config();
 const express = require('express')
 const mongoose = require('mongoose');
 const Product = require('./models/product.model.js')
 const app = express()
 app.use(express.json())
+app.use(express.urlencoded({extended: false}))
 
 
 app.get('/', function (req, res) {
@@ -40,11 +42,43 @@ app.post('/api/products',async (req, res)=>{
     }
 })
 
+app.put('/api/product/:id', async(req, res)=>{
+    try {
+        const {id} = req.params
+        const prodcut = await Product.findByIdAndUpdate(id, req.body)
 
-mongoose.connect("mongodb+srv://greenandthere:2htVtlgr7vbDuDbd@backenddb.jpekjaq.mongodb.net/Node-API?retryWrites=true&w=majority&appName=BackendDB")
+        if(!prodcut){
+            return res.status(404).json({message: "Prodcut not found"})
+        }
+
+        const updatedProdct = await Product.findById(id)
+        res.status(200).json(updatedProdct)
+
+    } catch (error) {
+        res.status(500).json({message: error.message}) 
+    }
+})
+
+app.delete('/api/product/:id', async(req, res)=>{
+    try {
+        const {id} = req.params
+        const prodcut = await Product.findByIdAndDelete(id, req.body)
+
+        if(!prodcut){
+            return res.status(404).json({message: "Prodcut not found"})
+        }
+        res.status(200).json({message: "Product Deleted succsesfully"})
+
+    } catch (error) {
+        res.status(500).json({message: error.message}) 
+    }
+})
+
+console.log(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI)
 .then(()=>{
-    console.log('Connected to DB')
-    app.listen(8080, ()=>{
+    console.log('Connected to DB ')
+    app.listen(process.env.PORT, ()=>{
         console.log("Server listening on port 3000")
     })
 })
